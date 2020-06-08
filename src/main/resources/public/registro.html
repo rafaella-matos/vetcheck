@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>VETCHECK - Registre-se</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Estilo para a página de login -->
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body class="text-center">
+    <form class="form-signin" autocomplete="off" onsubmit="return registrar(event);">
+        <h1 class="h3 mb-3 font-weight-normal">Realize seu cadastro</h1>
+        <div class="mb-2">
+            <label for="inputNome" class="sr-only">Nome</label>
+            <input type="text" id="inputNome" class="form-control" placeholder="Nome" required autofocus>
+        </div>
+        <div class="mb-2">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+        </div>
+        <div class="mb-2">
+            <label for="inputCrmv" class="sr-only">CRMV</label>
+            <input type="text" id="inputCrmv" class="form-control" placeholder="CRMV" required autofocus>
+        </div>
+        <div class="mb-2">
+            <label for="inputTelefone" class="sr-only">Telefone</label>
+            <input type="text" id="inputTelefone" class="form-control" placeholder="Telefone" required autofocus>
+        </div>
+        <div class="mb-2">
+            <label for="inputSenha" class="sr-only">Senha</label>
+            <input type="password" id="inputSenha" class="form-control" placeholder="Senha" required>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Registrar</button>
+            <a href="/login.html">Ou faça seu login</a>
+        </div>
+    </form>
+
+    <script src="js/autenticacao.js"></script>
+</body>
+
+</html>

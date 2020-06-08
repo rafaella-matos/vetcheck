@@ -1,0 +1,102 @@
+<html>
+<head>
+	<meta content="text/html; charset = UTF-8" http-equiv="content-type">
+	<title>Controle de veterinários</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<script type="text/javascript">
+function enviar(e) {
+	e.preventDefault();
+	
+	const formData = new FormData(e.source);
+	console.log(123);
+	fetch('Aplicacao.java', {
+		method: 'post',
+		body: formData
+	}).then(function (response){
+		console.log(response.text);
+		location.href='index.html';
+	}).then(function (text){
+		console.log(text);
+	}).catch(function (error){
+		console.error(error);
+	});
+}
+
+function addIdToPath(form_name){
+    var your_form = document.getElementById(form_name);
+	var id = your_form.elements.namedItem("id").value;
+    var action_src = "http://localhost:6789/vet/" + id;
+	your_form.action = action_src;
+}
+
+</script>
+<body>
+	<p>
+	<h1>Cadastro de veterinários</h1>
+	</p>
+
+
+	<section class="section--container__responsive">
+
+		<section class="section--mainrow__responsive first--section">
+			<h1 class="generaltext">Cadastramento de Veterinario</h1>
+			
+			<form class="form--register" id="clientForm"
+				action="http://localhost:6789/vet" method="post"
+				  onsubmit="return enviar(event)"
+				id="form-add">
+				<p>Nome:</p>
+				<input class="input--register" type="text" name="nome" value=""
+					placeholder="Fernando">
+				<p>Email:</p>
+				<input class="input--register" type="text" name="email" value=""
+					placeholder="email@email.com">
+				<p>Senha:</p>
+				<input class="input--register" type="password" name="senha" value="">
+				<p>CRMV:</p>
+				<input class="input--register" type="text" name="crmv"
+					value="">
+					<p>Telefone:</p>
+				<input class="input--register" type="text" name="telefone"
+					value="">
+				
+				<input type="submit"
+					value="cadastrar" class="input--main__style input--button">
+			</form>
+		</section>
+
+	</section>
+
+	
+
+
+	<section class="section--container__responsive"
+		style="visibility: hidden" id="product-result">
+		<table border="1">
+			<tr>
+				<td>Cliente id:</td>
+				<td><span id="id">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>nome:</td>
+				<td><span id="nome">Sem Resultado</span></td>
+			</tr>
+			<tr>
+				<td>senha:</td>
+				<td><span id="preco">*****</span></td>
+			</tr>
+			<tr>
+				<td>endereco:</td>
+				<td><span id="endereco">Sem Resultado</span></td>
+			</tr>
+			
+		</table>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

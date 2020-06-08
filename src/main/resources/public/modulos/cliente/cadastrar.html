@@ -1,0 +1,35 @@
+<h2>Cadastro de clientes</h2>
+
+<p>
+	Antes de continuar, verifique se o cliente está em posse dos documentos necessários para o cadastro.
+</p>
+
+<div class="row">
+	<div class="col-12 text-right">
+		<a href="#visualizarClientes">Retornar à visualização de clientes</a>
+	</div>
+</div>
+
+<form id="clientForm" onsubmit="return cadastrarCliente(event);">
+	<div class="mb-2">
+		<label for="inputNome">Nome</label>
+		<input class="form-control" type="text" name="nome" id="inputNome" placeholder="Nome" />
+	</div>
+
+	<div class="mb-2">
+		<label for="inputEmail">Email</label>
+		<input class="form-control" type="email" name="email" id="inputEmail" placeholder="Email">
+	</div>
+	
+	<div class="mb-2">
+		<label for="inputEndereco">Endereço</label>
+		<input class="form-control" type="text" name="endereco" id="inputEndereco">
+	</div>
+	
+	<div class="mb-2">
+		<label for="inputTelefone">Telefone</label>
+		<input class="form-control" type="text" name="telefone" id="inputTelefone">
+	</div>
+
+	<button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
