@@ -36,7 +36,6 @@ public class VeterinarioService {
 	 * @return O código do novo veterinário cadastrado
 	 */
 	public Object cadastrar(Request request, Response response) {
-		System.out.println("Cadastro de veterinário");
 		Veterinario veterinario = gson.fromJson(request.body(), Veterinario.class);
 		veterinario.setId(veterinarioDAO.obterChave() + 1);
 		veterinarioDAO.adicionar(veterinario);

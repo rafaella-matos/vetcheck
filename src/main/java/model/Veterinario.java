@@ -109,9 +109,7 @@ public class Veterinario implements Serializable  {
 	/**
 	 * Inicializa uma instância de {Veterinario}
 	 */
-	public Veterinario() {
-		System.out.println("OPA");
-	}
+	public Veterinario() { }
 
 	/**
 	 * Permite comprar instâncias de objetos

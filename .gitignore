@@ -18,6 +18,9 @@ local.properties
 # IntelliJ
 **/.idea
 
+# Dados
+*.dat
+
 # External tool builders
 .externalToolBuilders/
 

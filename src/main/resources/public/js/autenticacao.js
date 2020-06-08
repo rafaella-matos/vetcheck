@@ -83,9 +83,10 @@ function registrar(evento) {
         },
 		body: JSON.stringify({ nome: nome, senha: senha, crmv: crmv, telefone: telefone, email: email })
 	}).then(function (response){
-        if (response.status === 200) {
+        if (response.status == 201) {
             localStorage.setItem('veterinario', JSON.stringify(response.text()));
-            validado = true;
+            alert('Usuário registrado com sucesso!');
+            location.href="/login.html";
         }
     });
     
