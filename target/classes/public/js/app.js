@@ -1,3 +1,5 @@
+const host = 'http://localhost:6789'
+
 /**
  * Define as rotas para a aplicação.
  */
@@ -103,7 +105,7 @@ function carregarClientes(colecao) {
 function detalheCliente() {
     let id = location.hash.replace('#visualizarCliente/', '');
 
-    fetch('http://localhost:6789/clientes/' + id)
+    fetch(host + '/clientes/' + id)
     .then((resposta) => {
         if (resposta.status == 200) { return resposta.json(); }
         else { console.log(resposta.status); return {}; }
@@ -155,7 +157,7 @@ function filtroCliente() {
  * @param {string} filtro O filtro a ser aplicado aos clientes
  */
 function obterClientes(filtro) {
-    fetch('http://localhost:6789/clientes?filtro=' + filtro)
+    fetch(host + '/clientes?filtro=' + filtro)
     .then((resposta) => {
         if (resposta.status == 200) { return resposta.json(); }
         else { console.log(resposta.status); return []; }
@@ -177,7 +179,7 @@ function carregarPets(idCliente) {
     tbody.innerHtml = '';
     tbody.innerText = '';
 
-    fetch('http://localhost:6789/clientes/' + idCliente + '/animais')
+    fetch(host + '/clientes/' + idCliente + '/animais')
     .then((resposta) => {
         if (resposta.status == 200) { return resposta.json(); }
         else { console.log(resposta.status); return []; }
@@ -217,7 +219,7 @@ function consultaAnimal() {
     let idAnimal = location.hash.replace('#consultar/', '');
     let dadosConsulta = document.getElementById('inputDadosConsulta').value;
 
-    fetch('http://localhost:6789/animais/' + idAnimal + '/consultas',
+    fetch(host + '/animais/' + idAnimal + '/consultas',
     {
         method: 'post',
         body: JSON.stringify({ idAnimal: idAnimal, dadosConsulta: dadosConsulta })
@@ -241,7 +243,7 @@ function cadastrarCliente(evento) {
     let telefone = document.getElementById('inputTelefone').value;
     let endereco = document.getElementById('inputEndereco').value;
 
-    fetch('http://localhost:6789/clientes', {
+    fetch(host + '/clientes', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json'
@@ -272,7 +274,7 @@ function cadastrarAnimal(evento) {
     let nome = document.getElementById("inputNome").value;
     let raca = document.getElementById('inputRaca').value;
     let especie = document.getElementById('inputEspecie').value;
-    let url = 'http://localhost:6789/clientes/' + idCliente + '/animais';
+    let url = host + '/clientes/' + idCliente + '/animais';
     console.log(url);
 
     fetch(url, {
@@ -294,13 +296,17 @@ function cadastrarAnimal(evento) {
     return false;
 }
 
+/**
+ * Cadastra uma consulta de um animal
+ * @param {Event} evento O evento
+ */
 function cadastrarConsultaAnimal(evento) {
     evento.preventDefault();
     evento.stopPropagation();
 
     let idAnimal = location.hash.replace('#consultar/', '');
     let dadosConsulta = document.getElementById("inputDadosConsulta").value;
-    let url = 'http://localhost:6789/animais/' + idAnimal + '/consultas';
+    let url = host + '/animais/' + idAnimal + '/consultas';
 
     fetch(url, {
         method: 'post',
